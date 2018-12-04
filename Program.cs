@@ -4,32 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace practise1
+namespace practise2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Random randomGenerator = new Random();
-            Console.WriteLine("how many students in the class?");
-            int students = Convert.ToInt32(Console.ReadLine());
-            int[] cls = new int [students];
-            Double sum = 0;
+            Random mtr = new Random();
+            int aa = 0;
+            int bb = 0;
+            int number = Convert.ToInt32(Console.ReadLine());
             
-            for (int i = 0; i < cls.Length; i++)
-                 {
-                    cls[i] = randomGenerator.Next(0, 100);
-                    
-                 }
-           
-
-            for (int i = 0; i < cls.Length; i++)
+            int[,] matrix = new int [5, 5];
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                Console.WriteLine(cls[i]);
-                sum = sum + cls[i];
+                
+                
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i,0] = mtr.Next(0, 10);
+                    matrix[i,j] = mtr.Next(0, 10);
+                    Console.Write(matrix[i,j]);
+
+                    if (number == matrix[i, j])
+                    {
+                        aa = i + 1;
+                        bb = j + 1;
+                       
+                    }
+                    
+                     
+
+                }
+                Console.WriteLine();
+               
             }
-            Console.WriteLine(sum);
-            Console.WriteLine(sum/cls.Length);
+            Console.Write("line:");
+            Console.WriteLine(aa);
+            Console.Write("column:");
+            Console.WriteLine(bb);
 
 
 
